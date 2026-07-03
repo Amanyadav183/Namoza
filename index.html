@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Book an expert orthopaedic consultation at OrthoNow."
+    />
+
+    <style>
+      /* ===========================
+   RESET
+=========================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+
+        background: #f7f9fc;
+
+        color: #1f2937;
+
+        line-height: 1.6;
+      }
+
+      /* ===========================
+   CONTAINER
+=========================== */
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      /* ===========================
+   HEADER
+=========================== */
+
+      header {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+        color: white;
+
+        padding: 18px 0;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 999;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .navbar {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+      }
+
+      .brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+      }
+
+      .logo {
+        width: 60px;
+
+        height: 60px;
+
+        border-radius: 50%;
+
+        background: white;
+
+        color: #2563eb;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 32px;
+      }
+
+      .brand h2 {
+        font-size: 30px;
+      }
+
+      .brand p {
+        opacity: 0.9;
+
+        font-size: 14px;
+      }
+
+      .call-btn {
+        text-decoration: none;
+
+        color: white;
+
+        background: #16a34a;
+
+        padding: 12px 20px;
+
+        border-radius: 8px;
+
+        font-weight: bold;
+
+        transition: 0.3s;
+      }
+
+      .call-btn:hover {
+        background: #15803d;
+
+        transform: translateY(-2px);
+      }
+
+      /* ===========================
+   HERO
+=========================== */
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .hero-grid {
+        display: grid;
+
+        grid-template-columns: 1.2fr 0.8fr;
+
+        gap: 60px;
+
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-block;
+
+        background: #dbeafe;
+
+        color: #2563eb;
+
+        padding: 8px 15px;
+
+        border-radius: 999px;
+
+        font-weight: 600;
+
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+
+        line-height: 1.15;
+
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        color: #4b5563;
+
+        font-size: 18px;
+      }
+
+      /* ===========================
+   STATS
+=========================== */
+
+      .stats {
+        display: flex;
+
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        margin-top: 40px;
+      }
+
+      .stat-card {
+        background: white;
+
+        flex: 1;
+
+        min-width: 150px;
+
+        padding: 22px;
+
+        border-radius: 16px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+        transition: 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-card h3 {
+        color: #2563eb;
+
+        margin-bottom: 8px;
+      }
+
+      /* ===========================
+   FORM
+=========================== */
+
+      .form-card {
+        background: white;
+
+        padding: 35px;
+
+        border-radius: 18px;
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .form-card h2 {
+        text-align: center;
+
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        text-align: center;
+
+        color: #6b7280;
+
+        margin-bottom: 25px;
+      }
+
+      label {
+        display: block;
+
+        margin-top: 18px;
+
+        margin-bottom: 8px;
+
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+
+        padding: 14px;
+
+        border: 1px solid #d1d5db;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+
+        transition: 0.3s;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+
+        border-color: #2563eb;
+
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      button {
+        width: 100%;
+
+        margin-top: 25px;
+
+        padding: 15px;
+
+        background: #16a34a;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 10px;
+
+        font-size: 18px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #15803d;
+
+        transform: translateY(-2px);
+      }
+
+      button:disabled {
+        opacity: 0.7;
+
+        cursor: not-allowed;
+      }
+
+      .error {
+        display: block;
+
+        color: #dc2626;
+
+        font-size: 13px;
+
+        min-height: 18px;
+      }
+
+      .privacy {
+        text-align: center;
+
+        color: #6b7280;
+
+        font-size: 13px;
+
+        margin-top: 15px;
+      }
+
+      /* ===========================
+   THANK YOU
+=========================== */
+
+      .hidden {
+        display: none;
+      }
+
+      .thank-you {
+        background: #dcfce7;
+
+        border-radius: 15px;
+
+        padding: 30px;
+
+        text-align: center;
+      }
+
+      .thank-you h3 {
+        color: #166534;
+
+        margin-bottom: 15px;
+      }
+
+      /* ===========================
+   BENEFITS
+=========================== */
+
+      .benefits {
+        padding: 70px 0;
+      }
+
+      .benefits h2 {
+        text-align: center;
+
+        margin-bottom: 40px;
+      }
+
+      .benefit-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+        gap: 25px;
+      }
+
+      .benefit-card {
+        background: white;
+
+        padding: 28px;
+
+        border-radius: 18px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+        text-align: center;
+
+        transition: 0.3s;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-6px);
+      }
+
+      .benefit-card h3 {
+        margin: 15px 0;
+      }
+
+      /* ===========================
+   REVIEW
+=========================== */
+
+      .review {
+        padding: 40px 0;
+      }
+
+      .review-card {
+        max-width: 700px;
+
+        margin: auto;
+
+        background: white;
+
+        border-radius: 18px;
+
+        padding: 40px;
+
+        text-align: center;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .stars {
+        font-size: 26px;
+
+        margin-bottom: 20px;
+      }
+
+      blockquote {
+        font-size: 20px;
+
+        font-style: italic;
+
+        margin-bottom: 20px;
+      }
+
+      /* ===========================
+   LOCATIONS
+=========================== */
+
+      .locations {
+        padding: 60px 0;
+
+        text-align: center;
+      }
+
+      .location-list {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 30px;
+
+        flex-wrap: wrap;
+
+        margin-top: 30px;
+
+        font-weight: 600;
+      }
+
+      /* ===========================
+   FOOTER
+=========================== */
+
+      footer {
+        background: #1f2937;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 35px 20px;
+      }
+
+      footer p {
+        margin: 8px 0;
+      }
+
+      /* ===========================
+   MOBILE
+=========================== */
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          text-align: center;
+        }
+
+        .stats {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 38px;
+        }
+
+        .logo {
+          width: 50px;
+
+          height: 50px;
+
+          font-size: 26px;
+        }
+
+        .brand h2 {
+          font-size: 24px;
+        }
+
+        .navbar {
+          flex-direction: column;
+
+          gap: 20px;
+        }
+
+        .call-btn {
+          width: 100%;
+
+          text-align: center;
+        }
+      }
+    </style>
+
+    <title>OrthoNow | Expert Orthopaedic Consultation</title>
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+
+    <header>
+      <div class="container navbar">
+        <div class="brand">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+              <path
+                d="M18 18 L46 46"
+                stroke="#2563EB"
+                stroke-width="5"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M46 18 L18 46"
+                stroke="#2563EB"
+                stroke-width="5"
+                stroke-linecap="round"
+              />
+
+              <circle cx="18" cy="18" r="8" fill="#2563EB" />
+
+              <circle cx="46" cy="18" r="8" fill="#2563EB" />
+
+              <circle cx="18" cy="46" r="8" fill="#2563EB" />
+
+              <circle cx="46" cy="46" r="8" fill="#2563EB" />
+            </svg>
+          </div>
+
+          <div>
+            <h2>OrthoNow</h2>
+
+            <p>Expert Orthopaedic Care</p>
+          </div>
+        </div>
+
+        <a href="tel:+919999999999" class="call-btn"> 📞 Call Now </a>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- LEFT -->
+
+        <div class="hero-content">
+          <span class="tag"> Trusted by 10,000+ Patients </span>
+
+          <h1>Get Expert Relief From Knee & Back Pain</h1>
+
+          <p>
+            Consult experienced orthopaedic specialists across Bengaluru,
+            Hyderabad and Chennai. Book your appointment in under one minute.
+          </p>
+
+          <div class="stats">
+            <div class="stat-card">
+              <h3>⭐ 4.8/5</h3>
+
+              <span>Patient Rating</span>
+            </div>
+
+            <div class="stat-card">
+              <h3>🏥 9</h3>
+
+              <span>Clinics</span>
+            </div>
+
+            <div class="stat-card">
+              <h3>👨‍⚕️ 25+</h3>
+
+              <span>Specialists</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="form-card">
+          <h2>Book Consultation</h2>
+
+          <p class="subtitle">Response within 30 minutes.</p>
+
+          <form id="consultationForm">
+            <label> Full Name </label>
+
+            <input
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              autocomplete="name"
+            />
+
+            <small id="nameError" class="error"> </small>
+
+            <label> Phone Number </label>
+
+            <input
+              id="phone"
+              type="tel"
+              maxlength="10"
+              placeholder="Enter your mobile number"
+              autocomplete="tel"
+            />
+
+            <small id="phoneError" class="error"> </small>
+
+            <label> Preferred Clinic (Optional) </label>
+
+            <select id="clinic">
+              <option>Bengaluru</option>
+
+              <option>Hyderabad</option>
+
+              <option>Chennai</option>
+            </select>
+
+            <button id="submitBtn" type="submit">
+              Book Free Consultation →
+            </button>
+
+            <p class="privacy">
+              🔒 Your information is secure and used only for scheduling your
+              consultation.
+            </p>
+          </form>
+
+          <div id="thankYou" class="thank-you hidden">
+            <h3>✅ Consultation Request Received</h3>
+
+            <p>
+              Thank you for choosing OrthoNow. One of our specialists will
+              contact you shortly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BENEFITS ================= -->
+
+    <section class="benefits">
+      <div class="container">
+        <h2>Why Choose OrthoNow?</h2>
+
+        <div class="benefit-grid">
+          <div class="benefit-card">
+            🩺
+
+            <h3>Same Day Consultation</h3>
+
+            <p>Quick appointments with experienced orthopaedic doctors.</p>
+          </div>
+
+          <div class="benefit-card">
+            📋
+
+            <h3>Digital Reports</h3>
+
+            <p>Easy access to prescriptions and medical reports.</p>
+          </div>
+
+          <div class="benefit-card">
+            🏥
+
+            <h3>Multiple Clinics</h3>
+
+            <p>Convenient locations across three major cities.</p>
+          </div>
+
+          <div class="benefit-card">
+            ❤️
+
+            <h3>Personalized Care</h3>
+
+            <p>Treatment plans tailored to your recovery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REVIEW ================= -->
+
+    <section class="review">
+      <div class="container">
+        <div class="review-card">
+          <p class="stars">⭐⭐⭐⭐⭐</p>
+
+          <blockquote>
+            "Booking was incredibly easy and I received a same-day appointment.
+            The doctor explained my treatment clearly."
+          </blockquote>
+
+          <h4>— Priya S., Bengaluru</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOCATIONS ================= -->
+
+    <section class="locations">
+      <div class="container">
+        <h2>Our Locations</h2>
+
+        <div class="location-list">
+          <span>📍 Bengaluru</span>
+
+          <span>📍 Hyderabad</span>
+
+          <span>📍 Chennai</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <div class="container">
+        <p>© 2026 OrthoNow Healthcare</p>
+
+        <p>Trusted Orthopaedic Care Across India</p>
+      </div>
+    </footer>
+
+    <script>
+      // =========================================
+      // ORTHONOW LANDING PAGE SCRIPT
+      // =========================================
+
+      // Create dataLayer if GTM isn't loaded
+      window.dataLayer = window.dataLayer || [];
+
+      // DOM Elements
+      const form = document.getElementById("consultationForm");
+
+      const thankYou = document.getElementById("thankYou");
+
+      const submitBtn = document.getElementById("submitBtn");
+
+      const nameInput = document.getElementById("name");
+
+      const phoneInput = document.getElementById("phone");
+
+      const clinicSelect = document.getElementById("clinic");
+
+      const nameError = document.getElementById("nameError");
+
+      const phoneError = document.getElementById("phoneError");
+
+      // =========================================
+      // VALIDATION FUNCTIONS
+      // =========================================
+
+      function validateName() {
+        const name = nameInput.value.trim();
+
+        if (name === "") {
+          nameError.textContent = "Please enter your full name.";
+
+          return false;
+        }
+
+        if (name.length < 3) {
+          nameError.textContent = "Name must contain at least 3 characters.";
+
+          return false;
+        }
+
+        nameError.textContent = "";
+
+        return true;
+      }
+
+      function validatePhone() {
+        const phone = phoneInput.value.trim();
+
+        if (phone === "") {
+          phoneError.textContent = "Please enter your phone number.";
+
+          return false;
+        }
+
+        if (!/^[6-9]\d{9}$/.test(phone)) {
+          phoneError.textContent = "Please enter a valid Indian mobile number.";
+
+          return false;
+        }
+
+        phoneError.textContent = "";
+
+        return true;
+      }
+
+      // =========================================
+      // LIVE VALIDATION
+      // =========================================
+
+      nameInput.addEventListener("input", validateName);
+
+      phoneInput.addEventListener("input", validatePhone);
+
+      // =========================================
+      // FORM SUBMISSION
+      // =========================================
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const isNameValid = validateName();
+
+        const isPhoneValid = validatePhone();
+
+        if (!isNameValid || !isPhoneValid) {
+          return;
+        }
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML = "⏳ Booking...";
+
+        // Push Event to GTM Data Layer
+        window.dataLayer.push({
+          event: "consultation_form_submitted",
+
+          patient_name: nameInput.value.trim(),
+
+          clinic_location: clinicSelect.value,
+
+          source: "Google Ads",
+
+          form_name: "consultation_landing_page",
+        });
+
+        console.log("DataLayer Event");
+
+        console.log(window.dataLayer);
+
+        // Simulate API Request
+        setTimeout(function () {
+          form.style.display = "none";
+
+          thankYou.classList.remove("hidden");
+
+          thankYou.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 1200);
+      });
+
+      // =========================================
+      // OPTIONAL:
+      // Console message
+      // =========================================
+
+      console.log("OrthoNow Landing Page Loaded");
+    </script>
+  </body>
+</html>
